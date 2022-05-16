@@ -47,10 +47,34 @@ namespace RockPaperScissors
                     {
                         Console.WriteLine("DRAW !!\n\n");
                     }
+                    else if (userInput == "ROCK")
+                    {
+                        Console.WriteLine("COMPUTER WINS !! \n\n");
+                        computerScore++;
+                    }
+                    else if (userInput == "SCISSORS")
+                    {
+                        Console.WriteLine("PLAYER WINS !!\n\n");
+                        userScore++;
+                    }
                     break;
                 case 3:
                     computerInput = "SCISSORS";
                     Console.WriteLine("Computer chose {0}", computerInput);
+                    if (userInput == "SCISSORS")
+                    {
+                        Console.WriteLine("DRAW !!\n\n");
+                    }
+                    else if (userInput == "ROCK")
+                    {
+                        Console.WriteLine("PLAYER WINS !!\n\n");
+                        userScore++;
+                    }
+                    else if (userInput == "PAPER")
+                    {
+                        Console.WriteLine("COMPUTER WINS !!\n\n");
+                        computerScore++;
+                    }
                     break;
                 default:
                     Console.WriteLine("Invalid Entry");
