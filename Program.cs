@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace RockPaperScissors
 {
@@ -15,6 +16,7 @@ namespace RockPaperScissors
             {
                 int userScore = 0;
                 int computerScore = 0;
+                int draw = 0;
 
                 while (userScore < 3 && computerScore < 3)
                 {
@@ -30,20 +32,23 @@ namespace RockPaperScissors
                     switch (randomInt)
                     {
                         case 1:
+                            Thread.Sleep(1500);
                             computerInput = "ROCK";
                             Console.WriteLine("Computer chose {0}", computerInput);
                             if (userInput == "ROCK")
                             {
-                                Console.WriteLine("DRAW !!\n\n");
+                                Console.WriteLine("DRAW !!\n");
+                                draw++;
                             }
                             else if (userInput == "PAPER")
                             {
-                                Console.WriteLine("PLAYER WINS !!\n\n");
+
+                                Console.WriteLine("PLAYER WINS !!\n");
                                 userScore++;
                             }
                             else if (userInput == "SCISSORS")
                             {
-                                Console.WriteLine("COMPUTER WINS !!\n\n");
+                                Console.WriteLine("COMPUTER WINS !!\n");
                                 computerScore++;
                             }
                             break;
@@ -52,16 +57,17 @@ namespace RockPaperScissors
                             Console.WriteLine("Computer chose {0}", computerInput);
                             if (userInput == "PAPER")
                             {
-                                Console.WriteLine("DRAW !!\n\n");
+                                Console.WriteLine("DRAW !!\n");
+                                draw++;
                             }
                             else if (userInput == "ROCK")
                             {
-                                Console.WriteLine("COMPUTER WINS !! \n\n");
+                                Console.WriteLine("COMPUTER WINS !! \n");
                                 computerScore++;
                             }
                             else if (userInput == "SCISSORS")
                             {
-                                Console.WriteLine("PLAYER WINS !!\n\n");
+                                Console.WriteLine("PLAYER WINS !!\n");
                                 userScore++;
                             }
                             break;
@@ -70,16 +76,17 @@ namespace RockPaperScissors
                             Console.WriteLine("Computer chose {0}", computerInput);
                             if (userInput == "SCISSORS")
                             {
-                                Console.WriteLine("DRAW !!\n\n");
+                                Console.WriteLine("DRAW !!\n");
+                                draw++;
                             }
                             else if (userInput == "ROCK")
                             {
-                                Console.WriteLine("PLAYER WINS !!\n\n");
+                                Console.WriteLine("PLAYER WINS !!\n");
                                 userScore++;
                             }
                             else if (userInput == "PAPER")
                             {
-                                Console.WriteLine("COMPUTER WINS !!\n\n");
+                                Console.WriteLine("COMPUTER WINS !!\n");
                                 computerScore++;
                             }
                             break;
@@ -88,17 +95,9 @@ namespace RockPaperScissors
                             break;
                     }
 
-                    Console.WriteLine("\n\nSCORES: \tPLAYER\t{0}\tCOMPUTER:\t{1}", userScore, computerScore);
-                    //     public void gameRules()
-                    //     {
-                    //         if (userInput == "ROCK" && computerInput == "PAPER")
-                    //         {
-                    //             Console.WriteLine("PLAYER WINS!!!");
-                    //             userScore++;
-                    //         }
-                    //         else if (userInput == "ROCK")
-                    // }
+                    Console.WriteLine("\nSCORES:\tPLAYER:\t{0}\tCOMPUTER:\t{1}\tDRAW:\t{2}", userScore, computerScore, draw);
                 }
+
                 if (userScore == 3)
                 {
                     Console.WriteLine("Player WON!!");
